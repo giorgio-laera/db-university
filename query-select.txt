@@ -1,0 +1,33 @@
+1.SELECT * 
+FROM university.students
+WHERE date_of_birth LIKE "1990-%";
+
+2.SELECT *
+ FROM university.courses
+ WHERE cfu  > "10" ;
+
+3. SELECT * 
+FROM university.students
+  WHERE TIMESTAMPDIFF(YEAR, date_of_birth , CURDATE()) >=30 ;
+
+4.SELECT *
+ FROM university.courses
+ WHERE period = "I semestre" 
+ AND year = 1;
+ 
+ 5.SELECT *
+ FROM university.exams
+ WHERE date =  "2020-06-20"
+ AND hour > "14:00";
+
+ 6.SELECT * 
+FROM university.degrees
+WHERE level = 'magistrale';
+
+7.SELECT *
+ FROM university.departments
+ WHERE name LIKE 'DIPARTIMENTO %';
+
+ 8.SELECT * 
+FROM university.teachers
+WHERE phone IS NULL;
