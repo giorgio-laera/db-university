@@ -1,0 +1,70 @@
+1.SELECT  degrees.id, degrees.name,
+				students.id,students.name, students.surname
+                
+ FROM university.degrees
+ 
+ INNER JOIN students
+ ON degrees.id = students.degree_id;
+
+ 2.SELECT departments.id,degrees.department_id, departments.name,
+				degrees.id, degrees.name
+FROM university.departments
+INNER JOIN degrees
+ON departments.id = degrees.department_id
+AND departments.id = '7'
+
+3.SELECT teachers.id, teachers.name,teachers.surname,
+				course_teacher.teacher_id,
+                courses.id, courses.name
+                
+ FROM university.teachers
+ JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+JOIN courses ON course_teacher.course_id=courses.id
+WHERE teachers.id = '44';
+
+4. SELECT students.surname, students.name,
+				degrees.name,
+                departments.name
+FROM university.degrees
+
+JOIN students
+ON degrees.id=students.degree_id
+
+JOIN departments 
+ON departments.id = degrees.department_id
+
+ORDER BY students.surname;
+
+5. SELECT degrees.name ,
+				courses.name,
+                 teachers.name, teachers.surname
+                 
+FROM university.degrees
+
+JOIN courses 
+ON degrees.id=courses.degree_id
+
+JOIN course_teacher 
+ON courses.id = course_teacher.course_id
+
+JOIN teachers
+ON course_teacher.course_id = teachers.id;
+
+6.SELECT departments.name,
+				teachers.name, teachers.surname
+ FROM university.departments
+ 
+ JOIN degrees 
+ ON departments.id = degrees.department_id
+ 
+JOIN courses 
+ON degrees.id = courses.degree_id
+
+JOIN course_teacher 
+ON courses.id =course_teacher.course_id
+
+JOIN teachers 
+ON course_teacher.teacher_id=teachers.id
+
+WHERE departments.name like '%matematica%';
+ 
